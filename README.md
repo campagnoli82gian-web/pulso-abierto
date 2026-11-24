@@ -1,75 +1,154 @@
-# React + TypeScript + Vite
+# Pulso Abierto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web para consultar los precios actuales de las principales criptomonedas, buscar y filtrar resultados, consultar información individual y administrar favoritos.
 
-Currently, two official plugins are available:
+## 🚀 Demo online
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**[Abrir Pulso Abierto](https://pulso-abierto-sepia.vercel.app/)**
 
-## React Compiler
+## 🛠️ Tecnologías utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript
+- Vite
+- React Router DOM
+- Zustand
+- Zod
+- Vitest
+- Testing Library
+- ESLint
 
-## Expanding the ESLint configuration
+## ✨ Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Consulta de precios de Bitcoin, Ethereum y Solana.
+- Obtención de precios mediante la API de CoinGecko.
+- Búsqueda de criptomonedas por nombre o símbolo.
+- Filtrado de resultados.
+- Visualización de detalles de cada criptomoneda.
+- Agregar y quitar criptomonedas de favoritos.
+- Persistencia de favoritos.
+- Estados de carga, error y resultados.
+- Diseño adaptable a dispositivos móviles.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📁 Estructura del proyecto
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```text
+src/
+├── assets/
+├── components/
+│   ├── CryptoCard.tsx
+│   ├── CryptoList.tsx
+│   ├── SearchForm.tsx
+│   └── StatusMessage.tsx
+├── pages/
+│   ├── Home.tsx
+│   └── CryptoDetail.tsx
+├── services/
+│   └── cryptoService.ts
+├── store/
+│   └── favoritesStore.ts
+├── test/
+│   ├── StatusMessage.test.tsx
+│   ├── cryptoService.test.ts
+│   └── favoritesStore.test.ts
+└── types/
+    └── crypto.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## 💻 Instalación y ejecución
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Requisitos:
+- Node.js
+- npm
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clonar el repositorio:
 
+```bash
+git clone https://github.com/campagnoli82gian-web/pulso-abierto.git
 ```
+
+Ingresar a la carpeta:
+
+```bash
+cd pulso-abierto
+```
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Iniciar el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+## 🧪 Comandos disponibles
+
+Ejecutar las pruebas:
+
+```bash
+npm run test
+```
+
+Compilar para producción:
+
+```bash
+npm run build
+```
+
+Ejecutar ESLint:
+
+```bash
+npm run lint
+```
+
+Previsualizar la compilación:
+
+```bash
+npm run preview
+```
+
+## 🔌 API
+
+Los precios se consultan mediante la API pública de CoinGecko:
+
+```text
+https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd
+```
+
+Los valores se muestran en dólares estadounidenses (USD).
+
+## 🌐 Despliegue
+
+La aplicación está desplegada en Vercel:
+
+**https://pulso-abierto-sepia.vercel.app/**
+
+El repositorio de código fuente se encuentra en GitHub:
+
+**https://github.com/campagnoli82gian-web/pulso-abierto**
+
+## ✅ Verificación final
+
+Fecha de verificación: 24/11/2026.
+
+| Verificación | Resultado |
+|---|---|
+| Pruebas automatizadas | 6 de 6 aprobadas |
+| Build de producción | Correcto |
+| ESLint | Sin errores |
+| Listado de criptomonedas | Verificado |
+| Vista de detalle | Verificada |
+| Favoritos | Verificados |
+| Persistencia de favoritos | Verificada |
+| Diseño responsive | Verificado |
+| Despliegue en Vercel | Correcto |
+| Consulta de API en producción | Correcta |
+
+## 👨‍💻 Autor
+
+Proyecto desarrollado por **Gian Campagnoli**.
+
